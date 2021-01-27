@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MvcMovies.Data;
 
 namespace MvcMovies
 {
@@ -24,6 +26,9 @@ namespace MvcMovies
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //AddDbContext options - ConnectionString
+            services.AddDbContext<MvcMoviesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MvcMoviesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

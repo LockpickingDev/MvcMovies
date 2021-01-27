@@ -9,19 +9,15 @@ namespace MvcMovies.Controllers
 {
     public class HelloWorldController : Controller
     {
+
+        // GET: /HelloWorld/
         public IActionResult Index()
         {
+            //return IActionResult
             return View(); //View name not specified, so Default view called - has same name as method calling it: Index
         }
 
-
-        // GET: /HelloWorld/
-        //public string Index()
-        //{
-        //    return "This is my default action...";
-        //}
-
-        /*** Cannot Overload and have multiple endpoints ***/
+        /*** Cannot Overload and have multiple endpoints with same name ***/
         //// GET: /HelloWorld/Welcome/ 
         //public string Welcome()
         //{
@@ -30,10 +26,16 @@ namespace MvcMovies.Controllers
 
         // GET: /HelloWorld/Welcome/ 
         //public string Welcome(string name, int numTimes = 1)
-        public string Welcome(string name, int ID = 1)
+        //public string Welcome(string name, int ID = 1)
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            //return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}"); //HtmlEncoder.Default.Encode to protect the app from malicious input
-            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+            //Data passed to the view
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View(); //return IActionResult.  Calls Default View "Welcome"
+
+            //return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}"); //HtmlEncoder.Default.Encode to protect the app from malicious input
         }
 
 
