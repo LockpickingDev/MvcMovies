@@ -11,7 +11,8 @@ namespace MvcMovies.Data
 
         }
 
-        public DbSet<Movie> Movie { get; set; } //Property for Entity set (typically a DB table).  Entity = row in data table
+        //Property for Entity set (typically a DB table).  Entity = row in data table
+        public DbSet<Movie> Movie { get; set; } //Movie property used for Scaffolding of MoviesController 
 
     }
 }
