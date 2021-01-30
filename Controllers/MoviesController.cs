@@ -41,7 +41,7 @@ namespace MvcMovies.Controllers
                 return NotFound();
             }
 
-            return View(movie);
+            return View(movie); //Movie found, instance of Movie model is passed to Details view
         }
 
         // GET: Movies/Create
