@@ -5,6 +5,7 @@ namespace MvcMovies.Migrations
 {
     public partial class InitialCreate : Migration
     {
+        //Executes when we Create this Migration
         //Up method creates the Movie table and configures Id as the primary key
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,13 +24,18 @@ namespace MvcMovies.Migrations
                 {
                     table.PrimaryKey("PK_Movie", x => x.Id);
                 });
+
+            //migrationBuilder.Sql(@"CREATE PROCEDURE MyCustomProcedure AS SELECT top 10 * FROM Movies");
         }
 
+        //Executes when we Remove this Migration
         //The Down method reverts the schema changes made by the Up migration.
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Movie");
+
+            //migrationBuilder.Sql(@"DROP PROCEDURE MyCustomProcedure");
         }
     }
 }
