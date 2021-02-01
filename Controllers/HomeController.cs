@@ -28,6 +28,7 @@ namespace MvcMovies.Controllers
             return View();
         }
 
+        //Don't Cache/store the call
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

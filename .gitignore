@@ -341,7 +341,7 @@ healthchecksdb
 
 
 #Config files
-appsettings.json
+#appsettings.json
 
 
 
